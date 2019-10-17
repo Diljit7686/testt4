@@ -28,6 +28,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player:SKSpriteNode!
     let PLAYER_SPEED:CGFloat = 20
     
+    var flag:SKSpriteNode!
+    
     
     
     override func didMove(to view: SKView) {
@@ -35,7 +37,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
 //        self.player = (self.childNode(withName: "player") as! SKSpriteNode)
         self.player = self.childNode(withName: "player") as? SKSpriteNode
+        self.flag = self.childNode(withName: "flag") as? SKSpriteNode
         
+        
+        self.flag = self.childNode(withName: "flag") as? SKSpriteNode
+        self.flag.physicsBody?.isDynamic = true
+        self.flag.physicsBody = SKPhysicsBody(rectangleOf: flag.size)
+        self.flag.physicsBody?.affectedByGravity = false
+        self.flag.physicsBody?.categoryBitMask = 1
+        self.flag.physicsBody?.contactTestBitMask = 4
      /**   self.player = Player(imageNamed: "rabbit64")
         self.player.size.width = self.size.width/11
         self.player.size.height = self.size.height/11
@@ -73,7 +83,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
    
     func didBegin(_ contact: SKPhysicsContact) {
-        print("Something collided!")
+        
+     
+      
+        
+        
     }
     
     
@@ -122,18 +136,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let nodeTouched = atPoint(location).name
        
         if (nodeTouched == "up") {
-            self.player.position.y = self.player.position.y + PLAYER_SPEED
-        }
-        else if (nodeTouched == "down") {
-        
-            self.player.position.y = self.player.position.y - PLAYER_SPEED
-        }
-        else if (nodeTouched == "left") {
-            // move left
-            self.player.position.x = self.player.position.x - PLAYER_SPEED
-        }
-        else if (nodeTouched == "right") {
-            // move right
+            self.player.position.y = self.player.position.y + PLAYER_SPEED}
+ else if (nodeTouched == "down") {
+        self.player.position.y = self.player.position.y - PLAYER_SPEED}
+     else if (nodeTouched == "left") {
+            self.player.position.x = self.player.position.x - PLAYER_SPEED}
+ else if (nodeTouched == "right") {
             self.player.position.x = self.player.position.x + PLAYER_SPEED
         }
 
@@ -149,3 +157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
 }
+
+
+
+
