@@ -20,6 +20,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var rightArrow:SKSpriteNode!
      var arrowTouched:String = ""
     **/
+    
+    
+    // fake changes to check commitsss
     var player:SKSpriteNode!
     let PLAYER_SPEED:CGFloat = 20
     
