@@ -14,15 +14,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
 //var player:Player = Player(imageNamed: "rabbit64")
     
-  /**  var upArrow:SKSpriteNode!
+   var upArrow:SKSpriteNode!
     var downArrow:SKSpriteNode!
     var leftArrow:SKSpriteNode!
     var rightArrow:SKSpriteNode!
      var arrowTouched:String = ""
-    **/
+   
     
     
-    // fake changes to check commitsss
+    // fake changes to check commits
+    
+    
     var player:SKSpriteNode!
     let PLAYER_SPEED:CGFloat = 20
     
